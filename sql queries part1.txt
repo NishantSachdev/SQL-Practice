@@ -1,0 +1,45 @@
+CREATE TABLE Trade (
+T_ID int NOT NULL ,
+Price int ,
+Bid_Price int,
+Ask_Price int,
+T_date DATE);
+
+SELECT * FROM Trade
+
+INSERT INTO Trade(T_ID ,Price ,Bid_Price,Ask_Price, T_date)
+VALUES(1 ,50 ,53 ,51,'2022-01-05' ),
+(2,70, 65 ,75,'2022-01-10'),
+(3,80,80,90 ,'2022-01-15'),
+(4,120,115,130,'2022-01-18'),
+(5,150,130,165,'2022-01-25');
+
+-- Query 1
+SELECT * FROM Trade
+WHERE Bid_Price > Price*1.05
+
+-- Query 2
+SELECT * FROM Trade
+WHERE Bid_Price < Price*0.95 
+
+-- Query 3
+SELECT * FROM Trade
+WHERE Bid_Price > Price*1.05
+UNION
+SELECT * FROM Trade
+WHERE Bid_Price < Price*0.95 
+
+-- Query 4
+SELECT * FROM Trade
+WHERE Ask_Price > Price*1.05
+
+-- Query 5
+SELECT * FROM Trade
+WHERE Ask_Price < Price*0.95
+
+-- Query 6
+SELECT * FROM Trade
+WHERE Ask_Price > Price*1.05
+UNION
+SELECT * FROM Trade
+WHERE Ask_Price < Price*0.95
